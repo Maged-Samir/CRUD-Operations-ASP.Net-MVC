@@ -59,3 +59,4 @@ F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\refint\S
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\Squad.pdb
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\Squad.genruntimeconfig.cache
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\ref\Squad.dll
+F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\libman.json

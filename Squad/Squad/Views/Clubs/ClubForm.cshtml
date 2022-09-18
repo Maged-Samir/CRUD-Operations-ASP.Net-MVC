@@ -1,0 +1,194 @@
+﻿@model ClubFormViewModel
+
+@{
+    ViewData["Title"] = "Movie Form";
+}
+
+@*<div>
+    <h2>@(Model.Id > 0 ? "Edit" : "Create") Movie</h2>
+</div>*@
+
+
+<div class="container-xxl flex-grow-1 container-p-y">
+
+
+
+    <div class="container-xxl flex-grow-1 container-p-y">
+        @*<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>*@
+
+        <div class="row">
+            <div class="col-md-12">
+
+                <div class="card mb-4">
+                    <h5 class="card-header">@(Model.Id > 0 ? "Edit" : "Create New") Club</h5>
+
+
+
+
+                    <div class="card-body">
+
+                        <form id="formAccountSettings" method="POST" asp-action="Create"
+                              asp-action="@(Model.Id > 0 ? "Edit" : "Create")" enctype="multipart/form-data">
+
+                            @*<div class="d-flex justify-content-end">
+
+                            <div id="poster-container" class="mb-3 col-md-6 @(Model.Id > 0 ? string.Empty : "d-none")" >
+                            <img src="" alt="Logo" class="d-block rounded img-thumbnail"
+                            height="100"
+                            width="100"
+                            />
+                            </div>
+
+                            <div class="mb-3 col-md-6">
+                            <label asp-for="Logo" class="form-label">Choose your logo </label>
+                            <input class="form-control" type="file" asp-for="Logo" />
+                            <span asp-validation-for="Logo" class="text-danger"></span>
+                            </div>
+
+                            </div>*@
+
+                            <!-- Account -->
+                            <div class="card-body">
+                                <div id="poster-container" class="d-flex align-items-start align-items-sm-center gap-4 ">
+                                    <img src="~/assets/img/avatars/1.png" alt="Logo" class="d-block rounded img-thumbnail "
+                                         height="100"
+                                         width="100" />
+                                    <div class="button-wrapper">
+                                        <label asp-for="Logo" class="btn btn-primary me-2 mb-4" tabindex="0">
+                                            
+                                            <span class="d-none d-sm-block">Upload new photo</span>
+                                            <i class="bx bx-upload d-block d-sm-none"></i>
+                                            <input type="file"
+                                                   asp-for="Logo"
+                                                   class="account-file-input"
+                                                   hidden
+                                                   accept=".png, .jpg" />
+                                        </label>
+                                        <button  type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                                            <i class="bx bx-reset d-block d-sm-none"></i>
+
+                                            <span class="d-none d-sm-block">Reset</span>
+                                        </button>
+
+                                        <p class="text-muted mb-0">Allowed JPG, GIF or PNG. Max size of 800K</p>
+                                        <span asp-validation-for="Logo" class="text-danger"></span>
+                                    </div>
+
+                                </div>
+                            </div>
+
+                            <hr class="my-0" />
+
+
+
+                            <input type="hidden" asp-for="Id" />
+                            <div class="row mt-5">
+                                <div class="mb-3 col-md-6">
+                                    <label asp-for="Name" class="text-muted">Name</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           asp-for="Name"
+                                           value=""
+                                           autofocus />
+                                    <span asp-validation-for="Name" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label asp-for="ShortName" class="text-muted">Short Name</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           asp-for="ShortName"
+                                           value="" />
+                                    <span asp-validation-for="ShortName" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label asp-for="WebSite" class="text-muted">WebSite</label>
+                                    <input class="form-control"
+                                           type="text"
+                                           asp-for="WebSite"
+                                           value=""
+                                           placeholder="about@example.com" />
+                                    <span asp-validation-for="WebSite" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label asp-for="Stadium" class="text-muted">Stadium</label>
+                                    <input type="text"
+                                           class="form-control"
+                                           asp-for="Stadium"
+                                           value="" />
+                                    <span asp-validation-for="Stadium" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="text-muted" asp-for="LeagueId"></label>
+                                    <div>
+                                        <select class="select2 form-select" asp-for="LeagueId" asp-items="@(new SelectList(Model.Leagues, "Id", "Name"))">
+                                            <option></option>
+                                        </select>
+                                        <span asp-validation-for="LeagueId" class="text-danger"></span>
+                                    </div>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="text-muted" asp-for="Year"></label>
+                                    <input type="number" class="form-control" asp-for="Year" value="@(Model.Year > 0 ? Model.Year : string.Empty)" />
+                                    <span asp-validation-for="Year" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="text-muted" asp-for="Titles"></label>
+                                    <textarea class="form-control" asp-for="Titles" maxlength="2500" rows="4"></textarea>
+                                    <span asp-validation-for="Titles" class="text-danger"></span>
+                                </div>
+                                <div class="mb-3 col-md-6">
+                                    <label class="text-muted" asp-for="Rate"></label>
+                                    <input type="number" class="form-control" asp-for="Rate" value="@(Model.Rate > 0 ? Model.Rate : string.Empty)" />
+                                    <span asp-validation-for="Rate" class="text-danger"></span>
+                                </div>
+
+                            </div>
+                            <div class="mt-2">
+                                <button type="submit" class="btn btn-primary me-2">Save changes</button>
+                                <button type="reset" asp-action="Index" class="btn btn-outline-secondary">Cancel</button>
+                            </div>
+
+
+
+
+
+
+                        </form>
+
+                    </div>
+
+                    <!-- /Account -->
+                </div>
+            </div>
+        </div>
+    </div>
+</div>
+
+
+
+
+@section Scripts {
+    @{
+        await Html.RenderPartialAsync("_ValidationScriptsPartial");
+    }
+    <script>
+        $(document).ready(function() {
+            $('#Logo').on('change', function() {
+                var selectedFile = $(this).val().split('\\').pop();
+                $(this).siblings('label').text(selectedFile);
+                var posterContainer = $('#poster-container');
+                var image = window.URL.createObjectURL(this.files[0]);
+                posterContainer.removeClass('d-none');
+                posterContainer.find('img').attr('src', image);
+            });
+            $('#Year').datepicker({
+                format: 'yyyy',
+                viewMode: 'years',
+                minViewMode: 'years',
+                autoclose: true,
+                startDate: new Date('1950-01-01'),
+                endDate: new Date()
+            });
+        });
+    </script>
+}

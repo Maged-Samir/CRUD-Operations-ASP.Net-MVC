@@ -1,0 +1,14 @@
+{
+  "version": "1.0",
+  "defaultProvider": "cdnjs",
+  "libraries": [
+    {
+      "library": "bootstrap-datepicker@1.9.0",
+      "destination": "wwwroot/bootstrap-datepicker/",
+      "files": [
+        "js/bootstrap-datepicker.min.js",
+        "css/bootstrap-datepicker.min.css"
+      ]
+    }
+  ]
+}

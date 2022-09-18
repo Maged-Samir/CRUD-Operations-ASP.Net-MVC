@@ -1,0 +1,35 @@
+﻿@model IEnumerable<Club>
+
+@{
+    ViewData["Title"] = "Clubs";
+}
+
+<h2>
+    <i class="bi bi-film"></i>
+    Movies
+</h2>
+
+<hr />
+
+<a class="btn btn-primary" asp-action="Create">
+    <i class="bi bi-plus"></i>Add Movie
+</a>
+
+<div class="text-center mt-4">
+    @if (!Model.Any())
+    {
+        <div class="alert alert-warning" role="alert">
+            <i class="bi bi-exclamation-triangle"></i>
+            No movies found!
+        </div>
+    }
+    else
+    {
+        <ul>
+            @foreach(var club in Model)
+            {
+                <li>@club.Name</li>
+            }
+        </ul>
+    }
+    </div>
