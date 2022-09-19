@@ -105,3 +105,20 @@
   text-align: center;
   margin-top: 1rem;
 }
+
+
+
+
+
+
+/*.myposter {
+    min-height: 214px;
+    background-position: center;
+    background-size: 100%;
+    transition: all 0.3s ease-in-out;
+}
+
+    .myposter:hover {
+        background-size: 120%;
+        transition: all 0.3s ease-in-out;
+    }*/
