@@ -1,0 +1,64 @@
+﻿@model Club
+
+@{
+    ViewData["Title"] = Model.Name;
+}
+
+
+
+<div class="container-xxl flex-grow-1 container-p-y">
+    @*<h4 class="fw-bold py-3 mb-4"><span class="text-muted fw-light">Account Settings /</span> Account</h4>*@
+
+    <div class="row">
+        <div class="col-md-12">
+
+            <div class="card">
+                
+                    <div class="card-body">
+                        <div class=" row justify-content mt-60-px">
+                <div class="col-md-3">
+                    <img src="data:image/*;base64,@(Convert.ToBase64String(Model.Logo))" class="img-thumbnail" alt="@Model.Name" />
+                </div>
+                <div class="col-md-7">
+                    <div class="d-flex justify-content-between mb-3">
+                        <h3>@Model.Name</h3>
+                        <span class="mt-2">
+                            <i class='bx bxs-star'></i>
+                            <span class="text-muted">@Model.Rate.ToString("0.0")</span>
+                        </span>
+                    </div>
+
+                 <div>
+                     <span class="mt-2">
+                            <i class='bx bx-check-shield'></i>
+                            <span>@Model.League.Name</span>
+                        </span>
+                 </div>
+                 <div>
+                     <span class="mt-2">
+                            <i class='bx bx-map'></i>
+                            <span>@Model.Stadium</span>
+                        </span>
+                 </div>
+                  <div>
+                     <span class="mt-2">
+                           <i class='bx bxs-calendar'></i>
+                            <span>@Model.Year</span>
+                        </span>
+                 </div>
+                 
+                         <p class="text-justify mt-3">@Model.Titles</p>
+                    </div>
+                   
+                </div>
+            </div>
+            </div>
+
+            
+
+
+        </div>
+    </div>
+</div>
+
+

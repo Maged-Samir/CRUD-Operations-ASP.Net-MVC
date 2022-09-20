@@ -1,7 +1,14 @@
-﻿@model IEnumerable<Club>
+﻿@using X.PagedList.Mvc.Core
+
+
+
+@*@model IEnumerable<Club>*@
+
+
+@model X.PagedList.IPagedList<Club>
 
 @{
-    ViewData["Title"] = "Clubs";
+    ViewData["Title"] = "Squad";
 }
 
 @*<h2>
@@ -36,29 +43,6 @@
 
 
 <div class="container-xxl flex-grow-1 container-p-y ">
-    @*<!-- Layout Demo -->
-    <div class="layout-demo-wrapper">
-    <div class="layout-demo-placeholder">
-    <img
-    src="../assets/img/layouts/layout-container-light.png"
-    class="img-fluid"
-    alt="Layout container"
-    data-app-light-img="layouts/layout-container-light.png"
-    data-app-dark-img="layouts/layout-container-dark.png"
-    />
-    </div>
-    <div class="layout-demo-info">
-    <h4>Layout container</h4>
-    <p>Container layout sets a <code>max-width</code> at each responsive breakpoint.</p>
-    </div>
-    </div>
-    <!--/ Layout Demo -->*@
-
-
-
-
-
-
 
     <div class="mt-0 mb-4">
         <button type="submit" class="btn btn-primary " onclick="location.href='@Url.Action("Create", "Clubs")'">
@@ -105,19 +89,19 @@
                                                     <i class="bx bx-dots-vertical-rounded"></i>
                                                 </button>
                                                 <ul class="dropdown-menu dropdown-menu-end">
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Action</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Another action</a></li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Something else here</a></li>
+
+                                                    <li><a class="dropdown-item" onclick="location.href='@Url.Action("Details", "Clubs",new { id = club.Id })'" href="javascript:void(0);">Details</a></li>
+                                                    <li><a class="dropdown-item" onclick="location.href='@Url.Action("Edit", "Clubs",new { id = club.Id })'" href="javascript:void(0);">Edit</a></li>
+                                                    <li><a class="dropdown-item js-delete" href="javascript:void(0);" data-id="@club.Id">Delete</a></li>
                                                     <li>
-                                                        <a asp-action="Edit" asp-route-id="@club.Id" class="btn btn-outline-primary">
+                                                        <hr class="dropdown-divider" />
+                                                    </li>
+                                                    <li>
+                                                        <a asp-action="Edit" asp-route-id="@club.Id" class="dropdown-item">
                                                             <i class="bi bi-pencil"></i>
                                                             Edit
                                                         </a>
                                                     </li>
-                                                    <li>
-                                                        <hr class="dropdown-divider" />
-                                                    </li>
-                                                    <li><a class="dropdown-item" href="javascript:void(0);">Separated link</a></li>
                                                 </ul>
                                             </div>
                                         </div>
@@ -149,4 +133,47 @@
             <!--/ Horizontal -->
         }
     }
+
+    <div>
+        <nav>
+            @Html.PagedListPager(Model, page => Url.Action("index", new { page = page }), new X.PagedList.Web.Common.PagedListRenderOptions()
+            {
+            ActiveLiElementClass = "active",
+            PageClasses = new[]{ "page-link"},
+            LiElementClasses=new[] { "page-item" },
+            UlElementClasses = new[] { "pagination","justify-content-center", "mt-3" },
+            LinkToNextPageFormat = "Next",
+            LinkToPreviousPageFormat = "Previous",
+            MaximumPageNumbersToDisplay = 5,
+            DisplayLinkToPreviousPage = X.PagedList.Web.Common.PagedListDisplayMode.Always,
+            DisplayLinkToNextPage = X.PagedList.Web.Common.PagedListDisplayMode.Always
+            })
+        </nav>
+    </div>
+
 </div>
+
+
+@section Scripts{
+    <script>
+        $(document).ready(function() {
+            $('.js-delete').on('click', function() {
+                var btn = $(this);
+                var result = confirm('Are U Sure u want delete this item');
+
+                if (result) {
+                    $.ajax({
+                        url: '/Clubs/delete/' + btn.data('id'),
+                        success: function() {
+                            btn.parents('.col-md').fadeOut();
+                            toastr.success('Movies deleted');
+                        },
+                        error: function() {
+                            console.log("errorsssss");
+                        }
+                    });
+                }
+            });
+        });
+    </script>
+}

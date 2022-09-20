@@ -1,5 +1,6 @@
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\appsettings.Development.json
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\appsettings.json
+F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\libman.json
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\Squad.staticwebassets.runtime.json
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\Squad.exe
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\Squad.deps.json
@@ -59,4 +60,7 @@ F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\refint\S
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\Squad.pdb
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\Squad.genruntimeconfig.cache
 F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\ref\Squad.dll
-F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\libman.json
+F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\JetBrains.Annotations.dll
+F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\X.PagedList.dll
+F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\bin\Debug\net6.0\X.PagedList.Mvc.Core.dll
+F:\Closed Camp\CRUD-Operations-ASP.Net-MVC\Squad\Squad\obj\Debug\net6.0\Squad.MvcApplicationPartsAssemblyInfo.cs

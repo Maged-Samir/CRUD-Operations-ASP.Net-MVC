@@ -1,7 +1,7 @@
 ﻿@model ClubFormViewModel
 
 @{
-    ViewData["Title"] = "Movie Form";
+    ViewData["Title"] = "Club Form";
 }
 
 @*<div>
@@ -27,7 +27,7 @@
 
                     <div class="card-body">
 
-                        <form id="formAccountSettings" method="POST" 
+                        <form id="formAccountSettings" method="POST"
                               asp-action="@(Model.Id > 0 ? "Edit" : "Create")" enctype="multipart/form-data">
 
                             @*<div class="d-flex justify-content-end">
@@ -50,12 +50,12 @@
                             <!-- Account -->
                             <div class="card-body">
                                 <div id="poster-container" class="d-flex align-items-start align-items-sm-center gap-4 ">
-                                    <img src="~/assets/img/avatars/1.png" alt="Logo" class="d-block rounded img-thumbnail "
+                                    <img src="@(Model.Id > 0 ? $"data:image/*;base64,{Convert.ToBase64String(Model.Logo)}" : "../assets/img/avatars/1.png")" alt="Logo" class="d-block rounded img-thumbnail "
                                          height="100"
                                          width="100" />
                                     <div class="button-wrapper">
                                         <label asp-for="Logo" class="btn btn-primary me-2 mb-4" tabindex="0">
-                                            
+
                                             <span class="d-none d-sm-block">Upload new photo</span>
                                             <i class="bx bx-upload d-block d-sm-none"></i>
                                             <input type="file"
@@ -64,7 +64,7 @@
                                                    hidden
                                                    accept=".png, .jpg" />
                                         </label>
-                                        <button  type="button" class="btn btn-outline-secondary account-image-reset mb-4">
+                                        <button type="button" class="btn btn-outline-secondary account-image-reset mb-4">
                                             <i class="bx bx-reset d-block d-sm-none"></i>
 
                                             <span class="d-none d-sm-block">Reset</span>
@@ -88,7 +88,6 @@
                                     <input class="form-control"
                                            type="text"
                                            asp-for="Name"
-                                           value=""
                                            autofocus />
                                     <span asp-validation-for="Name" class="text-danger"></span>
                                 </div>
@@ -96,8 +95,7 @@
                                     <label asp-for="ShortName" class="text-muted">Short Name</label>
                                     <input class="form-control"
                                            type="text"
-                                           asp-for="ShortName"
-                                           value="" />
+                                           asp-for="ShortName" />
                                     <span asp-validation-for="ShortName" class="text-danger"></span>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -105,7 +103,6 @@
                                     <input class="form-control"
                                            type="text"
                                            asp-for="WebSite"
-                                           value=""
                                            placeholder="about@example.com" />
                                     <span asp-validation-for="WebSite" class="text-danger"></span>
                                 </div>
@@ -113,8 +110,7 @@
                                     <label asp-for="Stadium" class="text-muted">Stadium</label>
                                     <input type="text"
                                            class="form-control"
-                                           asp-for="Stadium"
-                                           value="" />
+                                           asp-for="Stadium" />
                                     <span asp-validation-for="Stadium" class="text-danger"></span>
                                 </div>
                                 <div class="mb-3 col-md-6">
@@ -145,7 +141,7 @@
                             </div>
                             <div class="mt-2">
                                 <button type="submit" class="btn btn-primary me-2">Save changes</button>
-                                <button type="reset" asp-action="Index" class="btn btn-outline-secondary">Cancel</button>
+                                <button type="reset" onclick="location.href='@Url.Action("Index", "Clubs")'" class="btn btn-outline-secondary">Cancel</button>
                             </div>
 
 
@@ -170,6 +166,7 @@
 @section Scripts {
     @{
         await Html.RenderPartialAsync("_ValidationScriptsPartial");
+
     }
     <script>
         $(document).ready(function() {
