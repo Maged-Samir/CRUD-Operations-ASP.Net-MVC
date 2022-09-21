@@ -1,4 +1,5 @@
 # CRUD-Operations-ASP.Net-MVC
+Squad is a simple ASP.Net6 MVC project in it i try to apply all CRUD Operations
 # Index
 ![Index](https://user-images.githubusercontent.com/102479398/191565048-620971a3-04d0-4024-b5a4-376b3241ba1e.png)
 # Add New Club
